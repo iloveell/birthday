@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id" class="no-js" data-planet="earth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#07111f">
+  <meta name="description" content="RAMA 20: perjalanan ulang tahun interaktif melintasi delapan dunia tata surya.">
+  <title>RAMA 20 | The Eight Worlds</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">Lewati ke konten</a>
+  <canvas id="starfield" aria-hidden="true"></canvas>
+  <canvas id="effects" aria-hidden="true"></canvas>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollBar"></span></div>
+
+  <header class="topbar" id="topbar">
+    <a class="brand" href="#arrival" aria-label="RAMA 20, kembali ke awal"><span class="brand-mark">R</span><span>RAMA <b>20</b><small>THE EIGHT WORLDS</small></span></a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="chapterNav" aria-label="Buka navigasi"><span></span><span></span></button>
+    <nav class="chapter-nav" id="chapterNav" aria-label="Navigasi bab">
+      <a href="#arrival" data-nav="arrival">Arrival</a>
+      <a href="#planetarium" data-nav="planetarium">Planetarium</a>
+      <a href="#transmission" data-nav="transmission">Transmission</a>
+      <a href="#vault" data-nav="vault">The Vault</a>
+      <a href="#constellation" data-nav="constellation">Constellation</a>
+      <a href="#memory" data-nav="memory">Memory</a>
+      <a href="#final-gift" data-nav="final-gift">Final Gift</a>
+    </nav>
+    <button class="theme-quick" id="themeQuick" aria-label="Buka pilihan tema planet"><span class="theme-dot"></span><span id="themeQuickLabel">Earth mode</span><span aria-hidden="true">⌄</span></button>
+  </header>
+
+  <aside class="orbit-guide" id="orbitGuide" aria-label="Pemandu ORBIT">
+    <div class="guide-orb" aria-hidden="true"><span></span></div>
+    <div class="guide-copy"><span class="eyebrow">ORBIT / GUIDE SYSTEM</span><p id="guideText" aria-live="polite">Hai, Rama! Selamat datang di sudut kecil semesta yang dibuat khusus buat kamu ♡</p></div>
+    <div class="guide-actions"><button id="guideHint" type="button">Petunjuk</button><button id="guideMute" type="button" aria-pressed="false" aria-label="Senyapkan ORBIT">×</button></div>
+  </aside>
+
+  <aside class="theme-panel" id="themePanel" aria-label="Pilih tema planet" hidden>
+    <div class="theme-panel-head"><div><span class="eyebrow">PLANETARY INTERFACE</span><h2>Pilih suasana planetmu</h2></div><button id="themeClose" class="icon-button" aria-label="Tutup pilihan tema">×</button></div>
+    <p class="muted">Pilih warna yang paling kamu suka. Mau pink gemas, biru adem, atau ungu dreamy?</p>
+    <div class="theme-options" id="themeOptions"></div>
+  </aside>
+
+  <main id="main">
+    <!-- CHAPTER 01: ARRIVAL -->
+    <section class="chapter hero chapter-active" id="arrival" data-title="Arrival" data-index="01">
+      <div class="hero-nebula nebula-a"></div><div class="hero-nebula nebula-b"></div>
+      <div class="hero-orbit orbit-a"><i></i></div><div class="hero-orbit orbit-b"><i></i></div><div class="hero-orbit orbit-c"><i></i></div>
+      <div class="hero-planet" aria-hidden="true"><div class="hero-planet-core"></div><div class="hero-planet-ring"></div></div>
+      <div class="hero-content">
+        <p class="eyebrow reveal">A PERSONAL COSMIC EXPEDITION · 19 OCTOBER 2026</p>
+        <p class="hero-pretitle reveal">A universe crafted for</p>
+        <h1 class="hero-title reveal">RAMA<span>20</span></h1>
+        <p class="hero-subtitle reveal">THE EIGHT WORLDS</p>
+        <p class="hero-description reveal">Satu halaman kecil buat ngerayain kamu yang hari ini resmi 20 tahun ✨</p>
+        <button class="primary-button reveal" data-go="planetarium" type="button"><span>Yuk, mulai!</span><b aria-hidden="true">↗</b></button>
+        <div class="hero-footnote"><span class="pulse-dot"></span> TRANSMISI SIAP DIBUKA <span>SCROLL TO EXPLORE</span></div>
+      </div>
+      <div class="side-index"><span>01</span><i></i><span>08</span></div>
+    </section>
+
+    <!-- CHAPTER 02: PLANETARIUM -->
+    <section class="chapter planetarium-section" id="planetarium" data-title="Planetarium" data-index="02">
+      <div class="section-heading reveal"><p class="eyebrow">CHAPTER 02 / SELECT YOUR WORLD</p><h2>Delapan planet, delapan suasana lucu.<br><em>Pilih yang paling kamu suka!</em></h2><p>Klik planetnya buat ganti warna website. Bebas pilih yang paling bikin kamu nyaman.</p></div>
+      <div class="planetarium-layout">
+        <div class="solar-system reveal" id="solarSystem" aria-label="Visual tata surya interaktif">
+          <div class="sun-core"><span>SOL</span></div>
+          <div class="solar-orbit orbit-mercury"><button class="planet planet-mercury" data-planet-select="mercury" aria-label="Pilih Mercury"><span></span></button></div>
+          <div class="solar-orbit orbit-venus"><button class="planet planet-venus" data-planet-select="venus" aria-label="Pilih Venus"><span></span></button></div>
+          <div class="solar-orbit orbit-earth"><button class="planet planet-earth" data-planet-select="earth" aria-label="Pilih Earth"><span></span></button></div>
+          <div class="solar-orbit orbit-mars"><button class="planet planet-mars" data-planet-select="mars" aria-label="Pilih Mars"><span></span></button></div>
+          <div class="solar-orbit orbit-jupiter"><button class="planet planet-jupiter" data-planet-select="jupiter" aria-label="Pilih Jupiter"><span></span></button></div>
+          <div class="solar-orbit orbit-saturn"><button class="planet planet-saturn" data-planet-select="saturn" aria-label="Pilih Saturn"><span class="saturn-ring"></span></button></div>
+          <div class="solar-orbit orbit-uranus"><button class="planet planet-uranus" data-planet-select="uranus" aria-label="Pilih Uranus"><span></span></button></div>
+          <div class="solar-orbit orbit-neptune"><button class="planet planet-neptune" data-planet-select="neptune" aria-label="Pilih Neptune"><span></span></button></div>
+          <div class="solar-label label-mercury">MERCURY</div><div class="solar-label label-venus">VENUS</div><div class="solar-label label-earth">EARTH</div><div class="solar-label label-mars">MARS</div><div class="solar-label label-jupiter">JUPITER</div><div class="solar-label label-saturn">SATURN</div><div class="solar-label label-uranus">URANUS</div><div class="solar-label label-neptune">NEPTUNE</div>
+        </div>
+        <article class="planet-detail reveal" id="planetDetail" aria-live="polite">
+          <div class="detail-topline"><span class="detail-number" id="planetNumber">03</span><span class="eyebrow">SUASANA SEKARANG</span><span class="detail-status"><i></i> LAGI DIPAKAI</span></div>
+          <div class="detail-planet-art" id="detailPlanetArt"><div class="detail-planet-ball"></div><div class="detail-planet-orbit"></div></div>
+          <p class="eyebrow" id="planetTagline">LIVING BLUE</p><h3 id="planetName">Earth</h3><p class="planet-detail-description" id="planetDescription">Biru laut, hijau kehidupan, dan cahaya yang terasa dekat.</p>
+          <div class="detail-palette" id="detailPalette"><i></i><i></i><i></i><i></i></div>
+          <button class="secondary-button" id="applyPlanetTheme" type="button">Pakai tema ini <span>↗</span></button>
+        </article>
+      </div>
+      <div class="planet-legend"><span><i class="legend-dot active"></i> Tema yang dipakai</span><span><i class="legend-dot"></i> Klik planet buat lihat warna</span><span class="muted">Boleh ganti kapan aja</span></div>
+      <div class="chapter-next"><span>LANJUT, YUK</span><a href="#transmission" aria-label="Ke bab Transmission">↓</a></div>
+    </section>
+
+    <!-- CHAPTER 03: TRANSMISSION -->
+    <section class="chapter transmission-section" id="transmission" data-title="Transmission" data-index="03">
+      <div class="transmission-art" aria-hidden="true"><div class="transmission-ring ring-one"></div><div class="transmission-ring ring-two"></div><div class="transmission-signal">R<span>20</span></div><div class="signal-line"></div></div>
+      <div class="transmission-copy reveal"><p class="eyebrow">CHAPTER 03 / INCOMING TRANSMISSION</p><h2>Hari ini tentang kamu,<br><em>dan hal-hal baik ke depannya.</em></h2><p class="large-copy">19 Oktober 2026. Yeay, Rama umur 20 tahun! 🎂</p><p>Semoga makin banyak hal seru yang kamu temuin, makin banyak alasan buat ketawa, dan semoga apa yang lagi kamu usahain pelan-pelan bisa tercapai. Nggak harus buru-buru, ya. Jalanin aja satu-satu.</p><div class="transmission-signature"><span class="signature-line"></span><span>PESAN KECIL DARI BUMI</span><span>19 · 10 · 2026</span></div></div>
+      <div class="chapter-number">03 <span>/</span> 08</div>
+    </section>
+
+    <!-- CHAPTER 04: THE VAULT -->
+    <section class="chapter vault-section" id="vault" data-title="The Vault" data-index="04">
+      <div class="section-heading reveal"><p class="eyebrow">BAGIAN 04 / KEJUTAN KECIL</p><h2>Kotak Kejutan<span class="title-period"> ♡</span></h2><p>Ada enam kapsul kecil. Pilih aja yang bikin kamu penasaran, nanti kita lihat isinya bareng-bareng.</p></div>
+      <div class="vault-status reveal"><div><span class="eyebrow">DISCOVERY PROGRESS</span><p id="vaultProgressText">00 / 05 ARTIFACTS DISCOVERED</p></div><div class="vault-progress-track"><span id="vaultProgressBar"></span></div><span class="vault-progress-percent" id="vaultProgressPercent">00%</span></div>
+      <div class="capsule-grid" id="capsuleGrid" aria-label="Kapsul hadiah"></div>
+      <div class="vault-footer"><p id="vaultMessage" aria-live="polite">Pilih satu kapsul, siapa tahu isinya bikin senyum-senyum sendiri.</p><button class="text-button" id="resetJourney" type="button">Reset perjalanan <span>↻</span></button></div>
+      <div class="vault-orbit-decoration" aria-hidden="true"></div>
+    </section>
+
+    <!-- CHAPTER 05: CONSTELLATION -->
+    <section class="chapter constellation-section" id="constellation" data-title="Constellation" data-index="05">
+      <div class="constellation-copy reveal"><p class="eyebrow">CHAPTER 05 / YOUR DISCOVERY MAP</p><h2>Satu kejutan,<br><em>satu bintang menyala.</em></h2><p>Setiap kapsul yang kamu buka bakal menyalakan bintang baru. Coba kumpulin semuanya, ya!</p><div class="constellation-stats"><div><strong id="starsFound">00</strong><span>BINTANG MENYALA</span></div><div><strong id="secretsFound">00</strong><span>KODE DITEMUKAN</span></div><div><strong id="artifactsFound">00</strong><span>ARTEFAK TERKUMPUL</span></div></div><button class="secondary-button" id="hintCode" type="button">Kasih petunjuk dong <span>↗</span></button></div>
+      <div class="constellation-stage reveal"><svg id="constellationMap" viewBox="0 0 620 470" role="img" aria-label="Peta konstelasi penemuan"><g class="constellation-lines" id="constellationLines"></g><g class="constellation-stars" id="constellationStars"></g></svg><div class="constellation-caption"><span>RAMA / 20</span><span id="constellationState">SIGNAL WAITING</span></div></div>
+    </section>
+
+    <!-- CHAPTER 06: MEMORY OBSERVATORY -->
+    <section class="chapter memory-section" id="memory" data-title="Memory Observatory" data-index="06">
+      <div class="section-heading reveal"><p class="eyebrow">CHAPTER 06 / MEMORY OBSERVATORY</p><h2>Hal kecil yang<br><em>pengen diinget terus.</em></h2><p>Bagian ini buat nyimpen cerita atau momen kecil. Isinya masih contoh, jadi boleh diganti kalau kamu punya kenangan yang pengen dimasukin.</p></div>
+      <div class="memory-grid" id="memoryGrid"></div>
+      <div class="memory-note reveal"><span class="memory-note-symbol">✳</span><p>Nggak harus momen besar kok. Kadang obrolan receh aja bisa jadi kenangan yang bikin senyum lagi nanti.</p><span class="memory-note-index">ARCHIVE / 06</span></div>
+    </section>
+
+    <!-- CHAPTER 07: FINAL GIFT -->
+    <section class="chapter final-section" id="final-gift" data-title="Final Gift" data-index="07">
+      <div class="final-starfield" aria-hidden="true"></div>
+      <div class="final-copy reveal"><p class="eyebrow">BAGIAN 07 / PESAN TERAKHIR</p><div class="sealed-letter" id="sealedLetter" aria-hidden="true"><div class="letter-glow"></div><div class="letter-envelope"><span>R</span><i></i></div><div class="letter-orbit"></div></div><p class="eyebrow" id="finalStatus">SIGNAL SEALED</p><h2>Ada satu pesan lagi<br><em>buat kamu ♡</em></h2><p id="finalIntro">Buka empat kapsul dulu, terus pesan terakhirnya bisa dibuka.</p><button class="primary-button" id="openFinalGift" type="button" disabled><span>Buka pesan terakhir ♡</span><b aria-hidden="true">↗</b></button></div>
+      <div class="final-bottomline"><span>RAMA 20</span><span>UDAH SAMPAI SINI, TAPI CERITANYA LANJUT</span></div>
+    </section>
+
+    <!-- CHAPTER 08: AFTERGLOW -->
+    <section class="chapter afterglow-section" id="afterglow" data-title="Afterglow" data-index="08">
+      <div class="afterglow-galaxy" aria-hidden="true"></div><div class="afterglow-content reveal"><p class="eyebrow">CHAPTER 08 / AFTERGLOW</p><h2>Selamat ulang tahun,<br><em>Rama! ✨</em></h2><p>Happy 20th birthday, Rama! Semoga sehat terus, bahagia, makin lancar semua urusannya, dan dikelilingi orang-orang baik. Makasih udah jadi teman yang menyenangkan. Semoga tahun ini banyak hal baik datang ke kamu. Jangan lupa istirahat dan nikmatin hidup juga, ya. Semoga hari ini bikin kamu senyum! 🎂</p><p class="afterglow-signature">Semoga tahun ini baik banget sama kamu ♡</p><div class="afterglow-actions"><button class="primary-button" id="replayJourney" type="button"><span>Lihat lagi dari awal</span><b aria-hidden="true">↻</b></button><button class="secondary-button" id="downloadJourney" type="button">Simpan pesan ini <span>↓</span></button></div></div><div class="afterglow-planetarium" id="afterglowPlanets" aria-hidden="true"></div><div class="afterglow-footer"><span>RAMA 20 · 19 OCTOBER 2026</span><span>DIBUAT DENGAN SEDIKIT BINTANG DAN BANYAK DOA BAIK</span></div>
+    </section>
+  </main>
+
+  <nav class="chapter-controls" aria-label="Kontrol bab"><button id="previousChapter" type="button" aria-label="Bab sebelumnya">↑</button><div><span id="chapterCurrent">01</span><i></i><span>08</span></div><button id="nextChapter" type="button" aria-label="Bab berikutnya">↓</button></nav>
+  <div class="music-player" role="group" aria-label="Pemutar musik"><button id="musicToggle" class="music-toggle" type="button" aria-label="Putar musik" aria-pressed="false"><span class="music-icon">▶</span></button><div class="music-info"><span class="eyebrow">LAGU PENGIRING</span><strong id="musicStatus">Lagu belum diputar</strong></div><button id="musicMute" class="music-mute" type="button" aria-label="Bisukan musik" aria-pressed="false">♫</button><input id="musicVolume" type="range" min="0" max="1" step="0.05" value="0.35" aria-label="Volume musik"><audio id="birthdayAudio" src="song.mp3" preload="none" loop></audio></div>
+
+  <!-- MODAL UNTUK KAPSUL, KENANGAN, KODE, DAN SURAT FINAL -->
+  <div class="modal-layer" id="modalLayer" hidden><section class="modal-card" id="modalCard" role="dialog" aria-modal="true" aria-labelledby="modalTitle"><button class="modal-close" id="modalClose" type="button" aria-label="Tutup">×</button><div class="modal-art" id="modalArt" aria-hidden="true"><span></span></div><p class="eyebrow" id="modalEyebrow">KEJUTAN TERBUKA</p><h2 id="modalTitle">Judul</h2><div class="modal-body" id="modalBody"></div><div class="modal-actions" id="modalActions"><button class="primary-button" id="modalContinue" type="button"><span>Lanjut, yuk</span><b>↗</b></button><button class="secondary-button" id="modalBack" type="button">Nanti dulu</button></div></section></div>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <noscript><div class="noscript-note">Selamat ulang tahun ke-20, Rama! Semoga hari-harimu makin menyenangkan. Aktifkan JavaScript buat membuka semua kejutan kecil di sini.</div></noscript>
+  <script src="script.js"></script>
+</body>
+</html>
